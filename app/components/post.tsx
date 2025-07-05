@@ -2,7 +2,7 @@ import { FaRegEye } from "react-icons/fa";
 import { BiLike, BiDislike } from "react-icons/bi";
 import { poppins, montserrat } from "../ui/fonts";
 
-export default async function Post({ id }: any) {
+export default async function Post({ id }: { id: string }) {
   const product = await fetch(`https://dummyjson.com/posts/${id}`);
   const data = await product.json();
   return (

@@ -1,4 +1,4 @@
-import { montserrat, poppins } from "../ui/fonts";
+import { montserrat } from "../ui/fonts";
 import { Suspense } from "react";
 import Posts from "../components/posts";
 import PostsSkeleton from "../skeletons/PostsSkeleton";

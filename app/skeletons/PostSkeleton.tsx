@@ -1,7 +1,3 @@
-import { FaRegEye } from "react-icons/fa";
-import { BiLike, BiDislike } from "react-icons/bi";
-import { poppins } from "../ui/fonts";
-
 export default function PostSkeleton() {
   return (
     <div className="mt-10 flex flex-col gap-2">

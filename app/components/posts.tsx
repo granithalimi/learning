@@ -7,7 +7,7 @@ export default async function Posts() {
 
   return (
     <div className="mt-5 flex flex-col gap-2">
-      {data.posts.map((p: any, ind: number) => (
+      {data.posts.map((p: {id:number, title:string}, ind: number) => (
         <Link key={ind} href={`/posts/${p.id}`} className={`${poppins.className} text-gray-400 hover:text-white hover:underline duration-500`}>{p.title}</Link>
       ))}
     </div>
