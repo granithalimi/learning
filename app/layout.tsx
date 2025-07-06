@@ -27,10 +27,10 @@ export default function RootLayout({
                 Products
               </Link>
               <Link
-                href={"#"}
+                href={"/todo"}
                 className="text-gray-400 font-extrabold flex items-center hover:text-white hover:underline duration-500 h-full"
               >
-                More Stupid
+                Todos
               </Link>
             </div>
           </div>

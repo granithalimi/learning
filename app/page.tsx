@@ -1,6 +1,8 @@
+import { supabase } from "./lib/supabase";
 import { montserrat, roboto } from "./ui/fonts";
 
-export default function Home() {
+export default async function Home() {
+  const data = await supabase.from("users").select("*")
   return (
     <div>
       <h1 className={`${montserrat.className} text-3xl`}>This is montserrat font !!</h1>
