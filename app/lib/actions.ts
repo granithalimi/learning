@@ -26,3 +26,11 @@ export async function deleteTodo(id: number) {
 
   revalidatePath("/todo");
 }
+
+export async function updateTodo(id: number, formData: FormData) {
+  const name = formData.get("name") as string;
+
+  const { error } = await supabase.from("todo").update({name:name}).eq("id", id);
+
+  revalidatePath(`/todo/${id}`)
+}

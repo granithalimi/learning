@@ -4,7 +4,7 @@ import { poppins } from "../ui/fonts";
 import { deleteTodo } from "../lib/actions";
 
 export default async function Todos() {
-  const data = await supabase.from("todo").select("*");
+  const data = await supabase.from("todo").select("*").order("id", {ascending:true});
   const todos = data.data;
 
   return (
@@ -19,7 +19,7 @@ export default async function Todos() {
               <div className="flex gap-2">
                 <Link
                   className="px-3 hover:bg-blue-400 py-1 bg-blue-500 duration-500 font-extrabold rounded-lg text-sm"
-                  href={`#`}
+                  href={`todo/${t.id}`}
                 >
                   Edit
                 </Link>
