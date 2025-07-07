@@ -1,11 +1,17 @@
 import "@/app/globals.css";
 import Link from "next/link";
+import { signout } from "./lib/actions";
+import { supabase } from "./lib/supabase";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <html lang="en">
       <body className={`antialiased`}>
@@ -32,6 +38,27 @@ export default function RootLayout({
               >
                 Todos
               </Link>
+              {user ? (
+                <>
+                  <form action={signout}>
+                    <button
+                      type="submit"
+                      className="text-gray-400 font-extrabold flex items-center hover:text-white hover:underline duration-500 h-full cursor-pointer"
+                    >
+                      Signout
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  <Link
+                    className="text-gray-400 font-extrabold flex items-center hover:text-white hover:underline duration-500 h-full cursor-pointer"
+                    href={"/auth/login"}
+                  >
+                    Login
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

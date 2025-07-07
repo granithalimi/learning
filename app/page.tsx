@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { supabase } from "./lib/supabase";
 import { montserrat, roboto } from "./ui/fonts";
 
